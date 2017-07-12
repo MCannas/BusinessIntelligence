@@ -1,0 +1,19 @@
+{% extends "web/home.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block container_tittle%} Crear Usuario {% endblock %}
+
+{% block container %}
+
+{% if userform and  userrolform %}
+<form method="POST" action="../createuser/">
+	{% csrf_token %}
+    {% crispy userform %}
+    {% crispy userrolform %}
+    <input type="submit" class=" col-lg-6 btn btn-lg btn-success " name="" value="Crear Usuario">
+</form>
+{% endif  %}
+{% endblock %}

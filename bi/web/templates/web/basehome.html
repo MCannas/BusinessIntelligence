@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block tittle%} Inicio {% endblock %}</title>
+
+{% block styles %}
+    <link href="{% static 'login/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'login/metisMenu/metisMenu.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'login/dist/css/sb-admin-2.css' %}" rel="stylesheet">
+
+    <link href="{% static 'login/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <link href="{% static 'login/morrisjs/morris.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block extrastyles %}
+
+{% endblock %}
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href=""> {% block nav_tittle%} Inteligencia De Negocio {% endblock %}</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="../connectionlist">
+                                <div>
+                                    <strong>Iniciar Conexion</strong>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown">
+                    
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="../logout"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesion</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+
+            </ul>
+
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+
+                        <li>
+                            <a href="../home"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
+                        </li>
+                        {% block admin_menu%}
+                        <li>
+                            <a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Menu De Administración<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../createuser">Crear Usuario</a>
+                                </li>
+                                <li>
+                                    <a href="../edituser">Editar Usuario</a>
+                                </li>
+                            </ul>
+                        </li>
+                        {% endblock %}
+                        <li>
+                            <a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Conexiones<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../createconection">Crear Conexion</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+        </nav>
+
+        <div id="page-wrapper">
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"> {% block container_tittle%} Inteligencia De Negocio {% endblock %}</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                {% block container%}
+
+                {% endblock %}
+            </div>
+
+        </div>
+
+    </div>
+
+{% block scripts%}
+    <script src="{% static 'login/jquery/jquery.min.js' %}"></script>
+
+    <script src="{% static 'login/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'login/metisMenu/metisMenu.min.js' %}"></script>
+
+    <script src="{% static 'login/dist/js/sb-admin-2.js' %} "></script>
+
+    <script src="{% static 'login/raphael/raphael.min.js' %}"></script>
+
+    <script src="{% static 'login/morrisjs/morris.min.js' %}"></script>
+
+<!--     <script src="{% static 'login/data/morris-data.js' %}"></script>
+ -->
+ {% endblock %}
+
+
+{% block extrascripts%}
+
+{% endblock %}
+
+
+</body>
+
+</html>

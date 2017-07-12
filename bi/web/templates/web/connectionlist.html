@@ -1,0 +1,79 @@
+
+{% extends "web/home.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block container_tittle%} Listado De Conexiones {% endblock %}
+
+{% block extrascripts%}
+<script type="text/javascript" src="{% static 'js/startconnection.js' %}"></script>
+{% endblock %}
+
+
+{% block container %}
+
+
+
+
+
+{% if connections %}
+
+<div id="panellist" class="panel panel-default">
+	<div class="panel-heading">
+		<i class="fa fa-bar-chart-o fa-fw"></i> Lista De Conexiones
+
+	</div>
+
+	<div class="panel-body">
+		<div class="row">
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover table-striped">
+					<thead>
+						<tr>
+							<th>Nombre De La Base De Datos</th>
+							<th>Host</th>
+							<th>Tipo</th>
+							<th>Usar Conexión</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for connection in connections %}
+
+						<tr>
+							<td>{{connection.dbname}}</td>
+							<td>{{connection.host}}</td>
+							<td>{{connection.dbtype.name}}</td>
+							<td> <button type="button" class="btn btn-primary" onclick="startconnection({{connection.id}});">Iniciar</button></td>
+						</tr>
+
+						{% endfor %}                                               
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div id="sentences"  style="max-height: 30vh; overflow-y: scroll; margin-left: 5px;" class="col-sm-2 well" >
+	</div>
+
+	<div id="tables" style="max-height: 30vh; overflow-y: scroll; margin-left: 5px;" class="col-sm-4 well">
+	</div>
+  </div>
+
+
+
+<textarea id="query" class="form-control" rows="5" id="comment" ondrop="drop(event)" ondragover="allowDrop(event)" ></textarea>
+
+
+
+
+
+{% endif %}
+
+
+{% endblock %}

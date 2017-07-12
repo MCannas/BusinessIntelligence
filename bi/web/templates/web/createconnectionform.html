@@ -1,0 +1,25 @@
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% if connectionform %}
+
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<i class="fa fa-bar-chart-o fa-fw"></i> Formulario De Conexión
+
+</div>
+<div class="panel-body">
+<div class="row">
+<div id="formcontainer" class="table-responsive">
+	<form method="POST" action="../createconection/">
+	{% csrf_token %}
+    {% crispy connectionform %}
+    <input type="submit" class=" col-lg-6 btn btn-lg btn-success " name="" value="Crear Conexión">
+</form>
+</div>
+</div>
+</div>
+</div>
+
+{% endif  %}

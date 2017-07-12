@@ -1,0 +1,32 @@
+{% extends "web/basehome.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block tittle%} Inicio {% endblock %}
+
+{% block extrascripts%}
+
+{% endblock %}
+
+
+{% block container_tittle%} Inteligencia De Negocio {% endblock %}
+
+{% block admin_menu%}
+{% if user.rol.key == 1 %}
+
+<li>
+<a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Menu De Administración<span class="fa arrow"></span></a>
+<ul class="nav nav-second-level">
+<li>
+<a href="../createuser">Crear Usuario</a>
+</li>
+<li>
+<a href="../edituser">Editar Usuario</a>
+</li>
+</ul>
+</li>
+{% endif %}
+
+
+{% endblock %}
